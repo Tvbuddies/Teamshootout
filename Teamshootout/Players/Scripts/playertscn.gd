@@ -1,8 +1,16 @@
 extends KinematicBody2D
 
+
+var pl = preload("res://Players/bullet.tscn")
+var bullet_speed = 500
 var MAX_SPEED = 1000
 var ACCELERATION = 3000
 var motion = Vector2.ZERO
+var can_fire = true
+var fire_rate = 0.5
+
+func _process(delta):
+	look_at(get_global_mouse_position())
 
 func _physics_process(delta):
 	var axis = get_axis()
@@ -11,6 +19,24 @@ func _physics_process(delta):
 	else:
 		apply_movement(axis * ACCELERATION * delta)
 	motion = move_and_slide(motion)
+	
+	#gun
+	if Input.is_action_pressed("p1s") and can_fire:
+		var bullet = pl.instance()
+		bullet.position = position
+		bullet.rotation_degrees = rotation_degrees
+		bullet.apply_impulse(Vector2(), Vector2(bullet_speed, 0).rotated(rotation))
+		get_tree().current_scene.add_child(bullet)
+		can_fire = false
+		yield(get_tree().create_timer(fire_rate), "timeout")
+		can_fire = true
+		
+	#slowmo
+	if Input.is_action_pressed("slowmo"):
+		Engine.time_scale = 0.3
+	else:
+		Engine.time_scale = 1
+
 
 
 func get_axis():
@@ -28,3 +54,13 @@ func apply_friction(amount):
 func apply_movement(acceleration):
 	motion += acceleration
 	motion = motion.clamped(MAX_SPEED)
+
+
+func kill():
+	get_tree().reload_current_scene()
+
+
+func _on_Hitbox_body_entered(body):
+	if "enemy" in body.name:
+		$p1/CanvasLayer/AnimationPlayer.play("Death")
+		kill()
