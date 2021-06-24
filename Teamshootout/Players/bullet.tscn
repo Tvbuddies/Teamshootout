@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Game assets/light.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 20, 4.89646 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 19.9375, 5.0141 )
+
+[node name="RigidBody2D" type="RigidBody2D"]
+continuous_cd = 2
+can_sleep = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 20, 19.8891 )
+shape = SubResource( 1 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 20, 19.8891 )
+texture = ExtResource( 2 )
+color = Color( 0.462745, 0, 0.52549, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_top = 15.0732
+margin_right = 40.0
+margin_bottom = 25.0732
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 20, 19.8891 )
+shape = SubResource( 2 )

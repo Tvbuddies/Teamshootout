@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 36, 10 )
+
+[node name="Sword" type="KinematicBody2D"]
+
+[node name="co" type="CollisionShape2D" parent="."]
+position = Vector2( 77.9667, 5.96388 )
+shape = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 112.0
+margin_bottom = 12.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
