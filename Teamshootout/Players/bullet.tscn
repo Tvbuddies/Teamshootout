@@ -8,7 +8,7 @@ extents = Vector2( 20, 4.89646 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 19.9375, 5.0141 )
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="bullet" type="RigidBody2D"]
 continuous_cd = 2
 can_sleep = false
 
