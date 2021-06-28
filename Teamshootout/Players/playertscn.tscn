@@ -21,6 +21,7 @@ position = Vector2( -30.5447, -27.452 )
 texture = ExtResource( 2 )
 texture_scale = 20.0
 color = Color( 0, 0.321569, 1, 1 )
+energy = 2.0
 shadow_enabled = true
 
 [node name="player" type="Sprite" parent="."]
