@@ -7,6 +7,4 @@ I plan on making this a full release and I hope you like it, this will take me a
 
 https://user-images.githubusercontent.com/64229309/123553881-a1835a00-d78e-11eb-9230-529a0d4061da.mp4
 
-
-feel free to join my discord server and contact me! (https://discord.gg/f2azWDSPVF)
 Please credit The creator @planetjunkie when creating a mod! but this is optional, Thats all I got!
